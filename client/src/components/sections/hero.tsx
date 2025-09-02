@@ -22,7 +22,7 @@ export default function Hero() {
             <h1 className="font-sans font-bold text-4xl sm:text-5xl lg:text-6xl text-foreground mb-4">
               Hi, I'm <span className="text-primary">Vedant Parikh</span>
             </h1>
-            <h2 className="font-sans font-medium text-xl sm:text-2xl text-secondary mb-6">
+            <h2 className="font-sans font-medium text-xl sm:text-2xl text-foreground mb-6">
               Software Engineer | Python Developer | AI/ML Enthusiast
             </h2>
             <p className="font-body text-lg text-muted-foreground mb-8 max-w-2xl">
