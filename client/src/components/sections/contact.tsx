@@ -94,7 +94,7 @@ export default function Contact() {
               <h3 className="font-sans font-semibold text-xl text-foreground mb-6">
                 Let's Connect
               </h3>
-              <p className="font-body text-muted-foreground mb-8 leading-relaxed">
+              <p className="font-body text-muted-foreground mb-8 leading-relaxed text-justify">
                 I'm always interested in discussing new opportunities, collaborating on exciting projects, or simply connecting with fellow developers. Feel free to reach out!
               </p>
             </div>

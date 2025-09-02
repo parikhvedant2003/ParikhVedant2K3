@@ -84,7 +84,7 @@ export default function Projects() {
                   </div>
                 </div>
                 
-                <p className="font-body text-muted-foreground mb-4 leading-relaxed">
+                <p className="font-body text-muted-foreground mb-4 leading-relaxed text-justify">
                   {project.description}
                 </p>
                 
