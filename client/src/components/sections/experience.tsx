@@ -63,57 +63,30 @@ export default function Experience() {
               
               <div className={`flex flex-col lg:flex-row gap-8 ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'}`}>
                 <div className="lg:w-1/2">
-                  {index % 2 === 0 ? (
-                    <Card className="bg-card shadow-sm border border-border" data-testid={`experience-card-${index}`}>
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-3 mb-3">
-                          {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary mt-1" />}
-                          <div>
-                            <h3 className="font-sans font-semibold text-xl text-foreground mb-1">
-                              {exp.title}
-                            </h3>
-                            <h4 className="font-medium text-primary mb-2">{exp.company}</h4>
-                            <p className="text-sm text-muted-foreground mb-4">{exp.duration}</p>
-                          </div>
+                  <Card className="bg-card shadow-sm border border-border" data-testid={`experience-card-${index}`}>
+                    <CardContent className="p-6">
+                      <div className="flex items-start gap-3 mb-3">
+                        {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary mt-1" />}
+                        <div>
+                          <h3 className="font-sans font-semibold text-xl text-foreground mb-1">
+                            {exp.title}
+                          </h3>
+                          <h4 className="font-medium text-primary mb-2">{exp.company}</h4>
+                          <p className="text-sm text-muted-foreground mb-4">{exp.duration}</p>
                         </div>
-                        <ul className="text-sm text-muted-foreground space-y-2">
-                          {exp.achievements.map((achievement, achIndex) => (
-                            <li key={achIndex} className="flex items-start">
-                              <span className="text-primary mr-2 mt-1">•</span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  ) : null}
+                      </div>
+                      <ul className="text-sm text-muted-foreground space-y-2">
+                        {exp.achievements.map((achievement, achIndex) => (
+                          <li key={achIndex} className="flex items-start">
+                            <span className="text-primary mr-2 mt-1">•</span>
+                            {achievement}
+                          </li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
                 </div>
-                <div className="lg:w-1/2">
-                  {index % 2 === 1 ? (
-                    <Card className="bg-card shadow-sm border border-border" data-testid={`experience-card-${index}`}>
-                      <CardContent className="p-6">
-                        <div className="flex items-start gap-3 mb-3">
-                          {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary mt-1" />}
-                          <div>
-                            <h3 className="font-sans font-semibold text-xl text-foreground mb-1">
-                              {exp.title}
-                            </h3>
-                            <h4 className="font-medium text-primary mb-2">{exp.company}</h4>
-                            <p className="text-sm text-muted-foreground mb-4">{exp.duration}</p>
-                          </div>
-                        </div>
-                        <ul className="text-sm text-muted-foreground space-y-2">
-                          {exp.achievements.map((achievement, achIndex) => (
-                            <li key={achIndex} className="flex items-start">
-                              <span className="text-primary mr-2 mt-1">•</span>
-                              {achievement}
-                            </li>
-                          ))}
-                        </ul>
-                      </CardContent>
-                    </Card>
-                  ) : null}
-                </div>
+                <div className="lg:w-1/2"></div>
               </div>
               
               {/* Mobile layout - show card always */}

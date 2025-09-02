@@ -25,7 +25,7 @@ export default function Hero() {
             <h2 className="font-sans font-medium text-xl sm:text-2xl text-foreground mb-6">
               Software Engineer | Python Developer | AI/ML Enthusiast
             </h2>
-            <p className="font-body text-lg text-muted-foreground mb-8 max-w-2xl">
+            <p className="font-body text-lg text-muted-foreground mb-8 max-w-2xl text-justify">
               Computer Engineering Graduate building scalable Python solutions with expertise in AI/ML, NLP, and backend development. GATE CSE qualified with a passion for creating innovative data-driven applications.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
