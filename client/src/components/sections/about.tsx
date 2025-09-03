@@ -11,13 +11,13 @@ export default function About() {
           <CardContent className="p-8">
             <div className="space-y-6">
               <p className="font-body text-lg text-foreground leading-relaxed text-justify">
-                I'm a passionate <strong>Software Engineer</strong> with a B.Tech in Computer Engineering from Dharmsinh Desai University (8.35 CGPA). Currently working at <strong>Genesis AI</strong>, I specialize in developing scalable backend solutions using Python, Django, and FastAPI.
+                Hey there! I'm <strong>Vedant</strong>, a Python developer who loves turning messy data into meaningful insights in the fintech world. I spend my days crafting <strong>backend systems</strong> with Django, Flask, and FastAPI that actually solve real problems – from extracting financial data from complex documents to building APIs that scale beautifully.
               </p>
               <p className="font-body text-lg text-foreground leading-relaxed text-justify">
-                My expertise lies in <strong>financial data extraction</strong>, <strong>NLP</strong>, and <strong>document processing</strong>. I've built production-grade systems that convert unstructured documents into actionable insights for FinTech clients, handling high-volume data environments with technologies like PyMuPDF, Pandas, and NumPy.
+                What drives me? <strong>Automation and clean code</strong>. There's something deeply satisfying about writing elegant solutions that make complex processes simple. Whether it's processing thousands of documents with NLP models or designing robust data pipelines, I'm all about creating systems that just work. I'm also curious about emerging technologies like <strong>Mojo</strong> and always exploring what's next in the Python ecosystem.
               </p>
               <p className="font-body text-lg text-foreground leading-relaxed text-justify">
-                I'm <strong>GATE CSE qualified</strong> (2023 & 2024) and maintain high ratings on coding platforms: <strong>5⭐ Python on HackerRank</strong> and <strong>3⭐ on CodeChef</strong>. I'm passionate about building innovative solutions that bridge the gap between complex data and meaningful insights.
+                When I'm not coding, you'll find me tackling algorithm challenges on <strong>CodeChef</strong> (3⭐ rating) and <strong>HackerRank</strong> (5⭐ Python), or diving deep into new frameworks and tools. I believe great software comes from understanding both the technical details and the human problems we're solving. <strong>GATE CSE qualified</strong> and always ready for the next interesting challenge!
               </p>
             </div>
           </CardContent>
