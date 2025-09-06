@@ -1,4 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
+import profilePhoto from "@assets/profile-photo.jpg";
 
 export default function About() {
   return (
@@ -20,14 +21,28 @@ export default function About() {
               <p className="font-body text-lg text-foreground leading-relaxed text-justify">
                 Hi, I'm <strong>Vedant Parikh</strong>, a Software Engineer based in India. Currently working at Genesis AI, I'm passionate about building robust backend systems that make an impact.
               </p>
-              <p className="font-body text-lg text-foreground leading-relaxed text-justify">
-                I specialize in creating scalable Python solutions with Django, Flask, and FastAPI. From crafting financial data extraction systems to building automation tools, I love turning complex problems into elegant solutions.
-              </p>
-              <p className="font-body text-lg text-foreground leading-relaxed text-justify">
-                My journey in tech is all about exploring new challenges, learning from every project, and continuously improving my skills. I'm passionate about clean, impactful code and always curious to explore emerging technologies like Mojo.
-              </p>
-              <p className="font-body text-lg text-foreground leading-relaxed text-justify">
-                If you're looking for someone who's eager to innovate and solve real-world problems, let's connect and create something amazing together!
+              
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1 text-lg">•</span>
+                  <p className="font-body text-base text-foreground">Specialize in <strong>Python development</strong> with Django, Flask, and FastAPI</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1 text-lg">•</span>
+                  <p className="font-body text-base text-foreground">Build <strong>financial data extraction systems</strong> and automation tools</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1 text-lg">•</span>
+                  <p className="font-body text-base text-foreground">Passionate about <strong>clean code</strong> and emerging technologies like Mojo</p>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1 text-lg">•</span>
+                  <p className="font-body text-base text-foreground"><strong>GATE CSE qualified</strong> with strong problem-solving skills</p>
+                </div>
+              </div>
+              
+              <p className="font-body text-lg text-foreground leading-relaxed text-justify mt-6">
+                Let's connect and create something amazing together!
               </p>
             </div>
           </div>
@@ -35,13 +50,13 @@ export default function About() {
           {/* Right side - Photo */}
           <div className="lg:w-1/2 flex justify-center lg:justify-end">
             <div className="relative">
-              <div className="w-64 h-80 bg-gradient-to-br from-primary/20 to-primary/5 rounded-2xl shadow-lg flex items-center justify-center">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-primary/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <span className="text-2xl font-bold text-primary">VP</span>
-                  </div>
-                  <p className="text-sm text-muted-foreground">Your photo here</p>
-                </div>
+              <div className="w-64 h-80 rounded-2xl shadow-lg overflow-hidden">
+                <img 
+                  src={profilePhoto} 
+                  alt="Vedant Parikh - Software Engineer" 
+                  className="w-full h-full object-cover object-center"
+                  data-testid="profile-photo"
+                />
               </div>
             </div>
           </div>
