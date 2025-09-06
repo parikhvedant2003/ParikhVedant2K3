@@ -54,11 +54,9 @@ const projects = [
 
 export default function Projects() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showAll, setShowAll] = useState(false);
   
-  const featuredProjects = projects.filter(p => p.featured);
   const itemsPerPage = 2;
-  const totalPages = Math.ceil(featuredProjects.length / itemsPerPage);
+  const totalPages = Math.ceil(projects.length / itemsPerPage);
   
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages);
@@ -69,69 +67,44 @@ export default function Projects() {
   };
   
   const getCurrentProjects = () => {
-    if (showAll) return projects;
     const startIndex = currentIndex * itemsPerPage;
-    return featuredProjects.slice(startIndex, startIndex + itemsPerPage);
+    return projects.slice(startIndex, startIndex + itemsPerPage);
   };
 
   return (
     <section id="projects" className="section-padding bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-foreground mb-4">
-            {showAll ? "All Projects" : "Featured Projects"}
-          </h2>
-          <Button 
-            onClick={() => setShowAll(!showAll)}
-            variant="outline"
-            className="mb-8"
-            data-testid="toggle-projects-view"
+        <h2 className="font-sans font-bold text-3xl sm:text-4xl text-center text-foreground mb-12">
+          Projects
+        </h2>
+        
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+            data-testid="prev-projects"
+            aria-label="Previous projects"
           >
-            {showAll ? "Show Featured Only" : "See More Projects"}
+            <ChevronLeft className="w-5 h-5" />
           </Button>
-        </div>
-        
-        {!showAll && (
-          <div className="flex justify-center items-center gap-4 mb-8">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={prevSlide}
-              disabled={totalPages <= 1}
-              data-testid="prev-projects"
-              aria-label="Previous projects"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            <div className="flex gap-2">
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
-                  }`}
-                  data-testid={`carousel-dot-${index}`}
-                  aria-label={`Go to page ${index + 1} of projects`}
-                  aria-current={index === currentIndex ? "page" : undefined}
-                />
-              ))}
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={nextSlide}
-              disabled={totalPages <= 1}
-              data-testid="next-projects"
-              aria-label="Next projects"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-          </div>
-        )}
-        
-        <div className={`grid gap-8 ${showAll ? "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3" : "grid-cols-1 lg:grid-cols-2"}`}>
-          {getCurrentProjects().map((project, index) => (
+          
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+            data-testid="next-projects"
+            aria-label="Next projects"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </Button>
+          
+          {/* Projects Grid */}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 px-12">
+            {getCurrentProjects().map((project, index) => (
             <Card 
               key={index} 
               className="project-card bg-card shadow-sm border border-border hover:shadow-lg transition-all duration-300"
@@ -186,7 +159,24 @@ export default function Projects() {
                 </div>
               </CardContent>
             </Card>
-          ))}
+            ))}
+          </div>
+          
+          {/* Dots Indicator */}
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
+                }`}
+                data-testid={`carousel-dot-${index}`}
+                aria-label={`Go to page ${index + 1} of projects`}
+                aria-current={index === currentIndex ? "page" : undefined}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

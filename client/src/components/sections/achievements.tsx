@@ -57,7 +57,6 @@ const achievements = [
 
 export default function Achievements() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [showAll, setShowAll] = useState(false);
   
   const itemsPerPage = 4;
   const totalPages = Math.ceil(achievements.length / itemsPerPage);
@@ -71,7 +70,6 @@ export default function Achievements() {
   };
   
   const getCurrentAchievements = () => {
-    if (showAll) return achievements;
     const startIndex = currentIndex * itemsPerPage;
     return achievements.slice(startIndex, startIndex + itemsPerPage);
   };
@@ -79,61 +77,37 @@ export default function Achievements() {
   return (
     <section className="section-padding bg-muted">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-foreground mb-4">
-            {showAll ? "All Achievements & Certifications" : "Achievements & Certifications"}
-          </h2>
-          <Button 
-            onClick={() => setShowAll(!showAll)}
-            variant="outline"
-            className="mb-8"
-            data-testid="toggle-achievements-view"
+        <h2 className="font-sans font-bold text-3xl sm:text-4xl text-center text-foreground mb-12">
+          Achievements & Certifications
+        </h2>
+        
+        <div className="relative">
+          {/* Navigation Buttons */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={prevSlide}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+            data-testid="prev-achievements"
+            aria-label="Previous achievements"
           >
-            {showAll ? "Show Less" : "See More Achievements"}
+            <ChevronLeft className="w-5 h-5" />
           </Button>
-        </div>
-        
-        {!showAll && (
-          <div className="flex justify-center items-center gap-4 mb-8">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={prevSlide}
-              disabled={totalPages <= 1}
-              data-testid="prev-achievements"
-              aria-label="Previous achievements"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            <div className="flex gap-2">
-              {Array.from({ length: totalPages }, (_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`w-2 h-2 rounded-full transition-colors ${
-                    index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
-                  }`}
-                  data-testid={`achievement-carousel-dot-${index}`}
-                  aria-label={`Go to page ${index + 1} of achievements`}
-                  aria-current={index === currentIndex ? "page" : undefined}
-                />
-              ))}
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={nextSlide}
-              disabled={totalPages <= 1}
-              data-testid="next-achievements"
-              aria-label="Next achievements"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-          </div>
-        )}
-        
-        <div className={`grid gap-6 ${showAll ? "grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4" : "grid-cols-1 md:grid-cols-2 lg:grid-cols-4"}`}>
-          {getCurrentAchievements().map((achievement, index) => (
+          
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={nextSlide}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-10 bg-background/80 backdrop-blur-sm hover:bg-background/90"
+            data-testid="next-achievements"
+            aria-label="Next achievements"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </Button>
+          
+          {/* Achievements Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-12">
+            {getCurrentAchievements().map((achievement, index) => (
             <Card 
               key={index} 
               className="bg-card shadow-sm border border-border hover:shadow-md transition-all duration-300 hover:scale-105"
@@ -156,7 +130,24 @@ export default function Achievements() {
                 </p>
               </CardContent>
             </Card>
-          ))}
+            ))}
+          </div>
+          
+          {/* Dots Indicator */}
+          <div className="flex justify-center items-center gap-2 mt-8">
+            {Array.from({ length: totalPages }, (_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-2 h-2 rounded-full transition-colors ${
+                  index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
+                }`}
+                data-testid={`achievement-carousel-dot-${index}`}
+                aria-label={`Go to page ${index + 1} of achievements`}
+                aria-current={index === currentIndex ? "page" : undefined}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>
