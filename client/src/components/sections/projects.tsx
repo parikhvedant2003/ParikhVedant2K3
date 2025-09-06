@@ -99,6 +99,7 @@ export default function Projects() {
               onClick={prevSlide}
               disabled={totalPages <= 1}
               data-testid="prev-projects"
+              aria-label="Previous projects"
             >
               <ChevronLeft className="w-5 h-5" />
             </Button>
@@ -111,6 +112,8 @@ export default function Projects() {
                     index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
                   }`}
                   data-testid={`carousel-dot-${index}`}
+                  aria-label={`Go to page ${index + 1} of projects`}
+                  aria-current={index === currentIndex ? "page" : undefined}
                 />
               ))}
             </div>
@@ -120,6 +123,7 @@ export default function Projects() {
               onClick={nextSlide}
               disabled={totalPages <= 1}
               data-testid="next-projects"
+              aria-label="Next projects"
             >
               <ChevronRight className="w-5 h-5" />
             </Button>
