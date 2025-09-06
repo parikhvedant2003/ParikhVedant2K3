@@ -1,9 +1,19 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Github, ExternalLink, TrendingUp, Bot, ArrowRightLeft, Languages } from "lucide-react";
+import { Github, ExternalLink, TrendingUp, Bot, ArrowRightLeft, Languages, MessageCircle, ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 
 const projects = [
+  {
+    title: "ChitChat - RealTime Chat Application",
+    description: "A secure and scalable realtime chat application built using Node.js, Socket.IO, Express, and JWT for backend authentication. Features user login/sign up with profile picture, live messaging, image sharing, and realtime online user tracking with seamless websocket communication.",
+    technologies: ["Node.js", "Socket.IO", "Express", "JWT", "HTML", "Tailwind CSS", "JavaScript", "Axios"],
+    icon: <MessageCircle className="w-6 h-6" />,
+    impact: "Real-time communication with secure authentication and file sharing",
+    githubUrl: "https://github.com/parikhvedant2003",
+    featured: true,
+  },
   {
     title: "AutoSift - Account Analysis Portal",
     description: "Financial data extraction platform that converts digitized documents into structured, analyzable data for banks and FinTech clients. Handles both searchable and scanned documents with advanced analytics.",
@@ -43,15 +53,81 @@ const projects = [
 ];
 
 export default function Projects() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [showAll, setShowAll] = useState(false);
+  
+  const featuredProjects = projects.filter(p => p.featured);
+  const itemsPerPage = 2;
+  const totalPages = Math.ceil(featuredProjects.length / itemsPerPage);
+  
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % totalPages);
+  };
+  
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + totalPages) % totalPages);
+  };
+  
+  const getCurrentProjects = () => {
+    if (showAll) return projects;
+    const startIndex = currentIndex * itemsPerPage;
+    return featuredProjects.slice(startIndex, startIndex + itemsPerPage);
+  };
+
   return (
     <section id="projects" className="section-padding bg-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="font-sans font-bold text-3xl sm:text-4xl text-center text-foreground mb-12">
-          Featured Projects
-        </h2>
+        <div className="text-center mb-12">
+          <h2 className="font-sans font-bold text-3xl sm:text-4xl text-foreground mb-4">
+            {showAll ? "All Projects" : "Featured Projects"}
+          </h2>
+          <Button 
+            onClick={() => setShowAll(!showAll)}
+            variant="outline"
+            className="mb-8"
+            data-testid="toggle-projects-view"
+          >
+            {showAll ? "Show Featured Only" : "See More Projects"}
+          </Button>
+        </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+        {!showAll && (
+          <div className="flex justify-center items-center gap-4 mb-8">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={prevSlide}
+              disabled={totalPages <= 1}
+              data-testid="prev-projects"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            <div className="flex gap-2">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentIndex(index)}
+                  className={`w-2 h-2 rounded-full transition-colors ${
+                    index === currentIndex ? "bg-primary" : "bg-muted-foreground/30"
+                  }`}
+                  data-testid={`carousel-dot-${index}`}
+                />
+              ))}
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={nextSlide}
+              disabled={totalPages <= 1}
+              data-testid="next-projects"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+          </div>
+        )}
+        
+        <div className={`grid gap-8 ${showAll ? "grid-cols-1 lg:grid-cols-2 xl:grid-cols-3" : "grid-cols-1 lg:grid-cols-2"}`}>
+          {getCurrentProjects().map((project, index) => (
             <Card 
               key={index} 
               className="project-card bg-card shadow-sm border border-border hover:shadow-lg transition-all duration-300"
