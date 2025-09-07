@@ -10,9 +10,9 @@ export default function About() {
         </h2>
         <div className="flex flex-col lg:flex-row gap-8 items-center">
           {/* Left side - Introduction */}
-          <div className="lg:w-1/2 space-y-6">
-            <div className="bg-primary/10 rounded-lg px-4 py-2 inline-block">
-              <span className="font-sans font-medium text-primary">I'm Vedant</span>
+          <div className="lg:w-4/5 space-y-6">
+            <div className="bg-primary/10 rounded-lg px-0 py-2 inline-block">
+              <span className="font-sans font-medium text-primary text-4xl">I'm Vedant Parikh</span>
             </div>
             <div className="space-y-1">
               <h3 className="font-sans font-semibold text-xl text-foreground">Software Engineer</h3>
@@ -24,20 +24,12 @@ export default function About() {
               
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1 text-lg">•</span>
-                  <p className="font-body text-base text-foreground">Specialize in <strong>Python development</strong> with Django, Flask, and FastAPI</p>
+                  <span className="text-primary text-lg">•</span>
+                  <p className="font-body text-base text-foreground">Specialize in <strong>Python Development</strong> with Django, Flask, and FastAPI</p>
                 </div>
                 <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1 text-lg">•</span>
-                  <p className="font-body text-base text-foreground">Build <strong>financial data extraction systems</strong> and automation tools</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1 text-lg">•</span>
-                  <p className="font-body text-base text-foreground">Passionate about <strong>clean code</strong> and emerging technologies like Mojo</p>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1 text-lg">•</span>
-                  <p className="font-body text-base text-foreground"><strong>GATE CSE qualified</strong> with strong problem-solving skills</p>
+                  <span className="text-primary text-lg">•</span>
+                  <p className="font-body text-base text-foreground">Build <strong>Financial Data Extraction Systems</strong> and Automation Tools</p>
                 </div>
               </div>
               

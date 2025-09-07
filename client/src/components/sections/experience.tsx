@@ -66,7 +66,7 @@ export default function Experience() {
                   <Card className="bg-card shadow-sm border border-border" data-testid={`experience-card-${index}`}>
                     <CardContent className="p-6">
                       <div className="flex items-start gap-3 mb-3">
-                        {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary mt-1" />}
+                        {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary" />}
                         <div>
                           <h3 className="font-sans font-semibold text-xl text-foreground mb-1">
                             {exp.title}
@@ -78,7 +78,7 @@ export default function Experience() {
                       <ul className="text-sm text-muted-foreground space-y-2">
                         {exp.achievements.map((achievement, achIndex) => (
                           <li key={achIndex} className="flex items-start">
-                            <span className="text-primary mr-2 mt-1">•</span>
+                            <span className="text-primary mr-2">•</span>
                             {achievement}
                           </li>
                         ))}
@@ -94,7 +94,7 @@ export default function Experience() {
                 <Card className="bg-card shadow-sm border border-border" data-testid={`experience-card-mobile-${index}`}>
                   <CardContent className="p-6">
                     <div className="flex items-start gap-3 mb-3">
-                      {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary mt-1" />}
+                      {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary" />}
                       <div>
                         <h3 className="font-sans font-semibold text-xl text-foreground mb-1">
                           {exp.title}
@@ -106,7 +106,7 @@ export default function Experience() {
                     <ul className="text-sm text-muted-foreground space-y-2">
                       {exp.achievements.map((achievement, achIndex) => (
                         <li key={achIndex} className="flex items-start">
-                          <span className="text-primary mr-2 mt-1">•</span>
+                          <span className="text-primary mr-2">•</span>
                           {achievement}
                         </li>
                       ))}

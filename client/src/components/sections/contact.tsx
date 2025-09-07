@@ -31,7 +31,7 @@ const contactInfo = [
     icon: <Phone className="w-5 h-5" />,
     title: "Phone",
     value: "+91 9428637251",
-    href: null,
+    href: "tel:+919428637251" ,
   },
 ];
 
@@ -55,7 +55,6 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // In production, this would call the backend API
       await new Promise(resolve => setTimeout(resolve, 1000)); // Simulate API call
       
       toast({

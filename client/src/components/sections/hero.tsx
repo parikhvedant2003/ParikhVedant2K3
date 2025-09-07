@@ -3,8 +3,10 @@ import { Download, Mail, Code2 } from "lucide-react";
 
 export default function Hero() {
   const handleDownloadResume = () => {
-    // In production, this would download the actual PDF resume
-    window.open("https://www.linkedin.com/in/parikhvedant2003/", "_blank");
+    const link = document.createElement("a");
+    link.href = "/Vedant_Parikh.pdf";
+    link.download = "Vedant_Parikh_Resume.pdf";
+    link.click();
   };
 
   const scrollToContact = () => {

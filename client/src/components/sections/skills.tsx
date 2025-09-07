@@ -12,9 +12,10 @@ import {
   Database, 
   GitBranch, 
   Globe, 
-  Bug
+  Bug,
+  ClipboardList // ✅ new icon for Jira
 } from "lucide-react";
-import { SiPython, SiJavascript, SiAmazon, SiDocker } from "react-icons/si";
+import { SiPython, SiJavascript, SiAmazon, SiDocker, SiMongodb, SiJira } from "react-icons/si"; // ✅ added MongoDB & Jira
 
 const skillCategories = [
   {
@@ -26,7 +27,7 @@ const skillCategories = [
       { name: "JavaScript", icon: <SiJavascript className="w-6 h-6" /> },
       { name: "Django", icon: <Flame className="w-6 h-6" /> },
       { name: "FastAPI", icon: <Zap className="w-6 h-6" /> },
-      { name: "FlaskConical", icon: <FlaskConical className="w-6 h-6" /> },
+      { name: "Flask", icon: <FlaskConical className="w-6 h-6" /> },
     ],
   },
   {
@@ -46,9 +47,11 @@ const skillCategories = [
       { name: "AWS", icon: <SiAmazon className="w-6 h-6" /> },
       { name: "Docker", icon: <SiDocker className="w-6 h-6" /> },
       { name: "SQL/NoSQL", icon: <Database className="w-6 h-6" /> },
+      { name: "MongoDB", icon: <SiMongodb className="w-6 h-6" /> }, // ✅ new
       { name: "Git", icon: <GitBranch className="w-6 h-6" /> },
       { name: "Nginx", icon: <Globe className="w-6 h-6" /> },
       { name: "Postman", icon: <Bug className="w-6 h-6" /> },
+      { name: "Jira", icon: <SiJira className="w-6 h-6" /> }, // ✅ new
     ],
   },
 ];
