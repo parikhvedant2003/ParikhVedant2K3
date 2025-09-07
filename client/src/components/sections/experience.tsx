@@ -5,7 +5,7 @@ const experiences = [
   {
     title: "Software Engineer",
     company: "Genesis Artificial Intelligence",
-    duration: "September 2023 - Present",
+    duration: "September 2024 - Present",
     type: "work",
     achievements: [
       "Engineered core financial data extraction logic using PyMuPDF and PyPDF2",
@@ -89,31 +89,6 @@ export default function Experience() {
                 <div className="lg:w-1/2"></div>
               </div>
               
-              {/* Mobile layout - show card always */}
-              <div className="lg:hidden">
-                <Card className="bg-card shadow-sm border border-border" data-testid={`experience-card-mobile-${index}`}>
-                  <CardContent className="p-6">
-                    <div className="flex items-start gap-3 mb-3">
-                      {exp.type === "education" && <GraduationCap className="w-5 h-5 text-primary" />}
-                      <div>
-                        <h3 className="font-sans font-semibold text-xl text-foreground mb-1">
-                          {exp.title}
-                        </h3>
-                        <h4 className="font-medium text-primary mb-2">{exp.company}</h4>
-                        <p className="text-sm text-muted-foreground mb-4">{exp.duration}</p>
-                      </div>
-                    </div>
-                    <ul className="text-sm text-muted-foreground space-y-2">
-                      {exp.achievements.map((achievement, achIndex) => (
-                        <li key={achIndex} className="flex items-start">
-                          <span className="text-primary mr-2">•</span>
-                          {achievement}
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              </div>
             </div>
           ))}
         </div>
