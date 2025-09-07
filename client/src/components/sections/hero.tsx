@@ -4,7 +4,7 @@ import { Download, Mail, Code2 } from "lucide-react";
 export default function Hero() {
   const handleDownloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Vedant_Parikh.pdf";
+    link.href = import.meta.env.BASE_URL + "Vedant_Parikh.pdf";
     link.download = "Vedant_Parikh_Resume.pdf";
     link.click();
   };
