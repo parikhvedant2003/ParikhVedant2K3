@@ -16,7 +16,7 @@ ParikhVedant2K3 is a modern portfolio builder web application designed to showca
 1. Clone the repository:
    ```bash
    git clone <repository-url>
-   cd PortfolioBuilder
+   cd <directory>
    ```
 
 2. Install dependencies:
