@@ -51,6 +51,25 @@ The build output will be in the `dist` folder.
 - `shared/` - Shared schemas and types between client and server.
 - Configuration files for Vite, Tailwind CSS, TypeScript, and Drizzle ORM.
 
+## Deployment Guide
+
+```
+# go to frontend
+cd client
+
+# install dependencies
+npm install --legacy-peer-deps
+
+# build production files
+npm run build
+
+# go back to root (because dist is in root in your case)
+cd ..
+
+# deploy to github pages
+npx gh-pages -d dist/public
+```
+
 ## Technologies Used
 
 - React
